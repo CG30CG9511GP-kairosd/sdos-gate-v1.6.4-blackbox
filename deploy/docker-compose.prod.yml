@@ -1,0 +1,75 @@
+# SDOS Gate — production-shaped stack (lab/staging pattern)
+#
+# - nginx terminates TLS on :443
+# - gate runs HTTP internally, single worker
+# - ledger DB and external anchor on SEPARATE volumes
+# - secrets via env file (replace with secret manager in real prod)
+#
+# Usage:
+#   cp deploy/env.production.example deploy/.env.production
+#   # fill secrets; never commit .env.production
+#   ./deploy/scripts/gen_selfsigned_cert.sh   # staging only
+#   docker compose -f deploy/docker-compose.prod.yml --env-file deploy/.env.production up -d
+
+services:
+  gate:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: sdos-gate
+    restart: unless-stopped
+    environment:
+      SDOS_API_KEY: ${SDOS_API_KEY}
+      SDOS_ED25519_PUBLIC_KEY_B64: ${SDOS_ED25519_PUBLIC_KEY_B64}
+      SDOS_DEFAULT_TENANT_ID: ${SDOS_DEFAULT_TENANT_ID:-default}
+      SDOS_LEDGER_HMAC_KEY: ${SDOS_LEDGER_HMAC_KEY}
+      SDOS_LEDGER_ANCHOR_HMAC_KEY: ${SDOS_LEDGER_ANCHOR_HMAC_KEY}
+      SDOS_LEDGER_DB: /var/lib/sdos/ledger/ledger.sqlite3
+      SDOS_LEDGER_LOCK: /var/lib/sdos/ledger/ledger.sqlite3.lock
+      SDOS_LEDGER_ANCHOR_PATH: /var/lib/sdos/anchor/ledger_anchor.json
+      SDOS_NONCE_DB_PATH: /var/lib/sdos/nonce/nonce.sqlite3
+      SDOS_LEDGER_QUARANTINE_DIR: /var/lib/sdos/ledger/quarantine
+      SDOS_LEDGER_AUDIT_LOG: /var/lib/sdos/audit/ledger_audit.jsonl
+      WEB_CONCURRENCY: "1"
+    volumes:
+      - ledger_data:/var/lib/sdos/ledger
+      - anchor_data:/var/lib/sdos/anchor
+      - nonce_data:/var/lib/sdos/nonce
+      - audit_data:/var/lib/sdos/audit
+    expose:
+      - "8000"
+    networks:
+      - sdos_internal
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    # Single instance: do not scale this service without redesigning ledger writes
+
+  edge:
+    image: nginx:1.27-alpine
+    container_name: sdos-edge
+    restart: unless-stopped
+    depends_on:
+      gate:
+        condition: service_healthy
+    ports:
+      - "${SDOS_HTTPS_PORT:-443}:443"
+      - "${SDOS_HTTP_PORT:-80}:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./certs:/etc/nginx/certs:ro
+    networks:
+      - sdos_internal
+
+volumes:
+  ledger_data:
+  anchor_data:
+  nonce_data:
+  audit_data:
+
+networks:
+  sdos_internal:
+    driver: bridge
