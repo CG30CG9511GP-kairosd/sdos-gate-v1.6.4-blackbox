@@ -1,12 +1,13 @@
 # Campaña Etapa 2 — Caja Negra Pública
 
-**Versión del Gate**: 1.6.4  
+**Producto**: AGCL Gateway  
+**Versión**: 1.6.4  
 **Tipo de paquete**: Verificación externa (black-box)  
 **Fecha de preparación del paquete público**: 2026-10-27  
 
 ## Objetivo de la campaña
 
-Permitir la verificación independiente de los controles de seguridad **observables** del SDOS Gate v1.6.4 sin exponer el código fuente real ni secretos operativos.
+Permitir la verificación independiente de los controles de seguridad **observables** del AGCL Gateway v1.6.4 sin exponer el código fuente real ni secretos operativos.
 
 ## Contenido del paquete
 
@@ -25,10 +26,10 @@ Permitir la verificación independiente de los controles de seguridad **observab
 ## Cómo usar este paquete
 
 1. Clonar este repositorio.
-2. Apuntar `SDOS_BASE` a una instancia autorizada del Gate.
+2. Apuntar `SDOS_BASE` a una instancia autorizada del AGCL Gateway.
 3. Ejecutar el guion en `blackbox/GUION_ETAPA2.md`.
 4. Depositar evidencias en `evidence/`.
 
 ## Estado
 
-Paquete listo para publicación en GitHub (modo público o privado restringido).
+Paquete listo para publicación en GitHub (modo público).

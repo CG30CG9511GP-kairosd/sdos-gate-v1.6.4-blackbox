@@ -7,9 +7,9 @@ Este repositorio (**sdos-gate-v1.6.4-blackbox**) contiene únicamente:
 - Configuraciones de referencia no secretas
 - Documentación de controles observables
 
-**El código fuente real del SDOS Gate v1.6.4, sus algoritmos, estructuras de datos, lógica de ledger, mecanismos criptográficos internos y cualquier otro componente de implementación no se distribuyen en este repositorio.**
+**El código fuente real del AGCL Gateway v1.6.4, sus algoritmos, estructuras de datos, lógica de ledger, mecanismos criptográficos internos y cualquier otro componente de implementación no se distribuyen en este repositorio.**
 
-Todo derecho sobre el software SDOS Gate, la metodología AGCL/SDOS y la documentación interna permanece reservado a sus titulares (Sierra Digital OS / SDOS).
+Todo derecho sobre el software AGCL Gateway, la metodología AGCL y la documentación interna permanece reservado a sus titulares (Sierra Digital OS / AGCL).
 
 Queda prohibida cualquier ingeniería inversa, descompilación o intento de reconstrucción del código fuente real a partir de este material o de instancias del servicio.
 

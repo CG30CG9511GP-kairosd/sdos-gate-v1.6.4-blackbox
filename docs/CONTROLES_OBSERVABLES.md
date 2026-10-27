@@ -1,4 +1,4 @@
-# Controles Observables — SDOS Gate v1.6.4
+# Controles Observables — AGCL Gateway v1.6.4
 
 Documento de referencia para verificación externa (caja negra).
 

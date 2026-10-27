@@ -1,9 +1,9 @@
-# SDOS Gate v1.6.4 — Caja Negra Pública (Etapa 2)
+# AGCL Gateway v1.6.4 — Caja Negra Pública (Etapa 2)
 
 **Paquete público de verificación externa (black-box)**  
-Código fuente real del Gate: **no incluido**. Propiedad de Sierra Digital OS / SDOS.
+Código fuente real del Gateway: **no incluido**. Propiedad de Sierra Digital OS / AGCL.
 
-Este repositorio permite auditar y verificar los **controles de seguridad observables** del SDOS Gate v1.6.4 sin exponer la implementación interna.
+Este repositorio permite auditar y verificar los **controles de seguridad observables** del **AGCL Gateway v1.6.4** sin exponer la implementación interna.
 
 > Evidencia de laboratorio ≠ aprobación de producción.  
 > Completar checklist de go-live antes de tráfico real.
@@ -57,14 +57,14 @@ bdd4f098ce89c33777a736b0249f9300c53bd8a00ad5d1cfaebf765c4999ee19  tests/conftest
 Ver archivos en `FREEZE/` para estado completo.
 
 **Estado declarado**:  
-`SDOS Gate v1.6.4 ETAPA 1 CONGELADA — 124 passed / 20 skipped. Controles no rediseñados.`
+`AGCL Gateway v1.6.4 ETAPA 1 CONGELADA — 124 passed / 20 skipped. Controles no rediseñados.`
 
 ---
 
 ## Cómo ejecutar las pruebas de caja negra
 
 ### Requisitos
-- Instancia del Gate accesible (proporcionada por el operador o entorno de laboratorio)
+- Instancia del AGCL Gateway accesible (proporcionada por el operador o entorno de laboratorio)
 - `bash`, `python3`, `curl` (o equivalente)
 
 ### Variables de entorno mínimas
@@ -99,7 +99,7 @@ La carpeta `deploy/` contiene:
 - `docker-compose.prod.yml` — patrón de volúmenes separados (ledger ≠ anchor) y single-worker
 - `env.production.example` — plantilla de variables (sin valores reales)
 
-Estas configuraciones son de **referencia**. El código del servicio Gate no se incluye.
+Estas configuraciones son de **referencia**. El código del servicio AGCL Gateway no se incluye.
 
 ---
 
@@ -108,13 +108,13 @@ Estas configuraciones son de **referencia**. El código del servicio Gate no se 
 - Este repositorio es un **paquete de verificación externa**.
 - No sustituye una auditoría de código fuente ni un dictamen de campaña firmado.
 - Cualquier uso de los scripts contra instancias de producción requiere autorización explícita del operador.
-- El código fuente real permanece privado y bajo control de Sierra Digital OS.
+- El código fuente real permanece privado y bajo control de Sierra Digital OS / AGCL.
 
 ---
 
 ## Autor / producto
 
-**SDOS / AGCL · Sierra Digital OS**  
+**AGCL Gateway · Sierra Digital OS**  
 Primer servicio de la plataforma.  
 Metodología de congelación + verificación por caja negra.
 
@@ -122,7 +122,7 @@ Metodología de congelación + verificación por caja negra.
 
 ## Licencia y propiedad
 
-Todo el código fuente del SDOS Gate, diseños, algoritmos y documentación interna son **propiedad exclusiva** de sus titulares.  
+Todo el código fuente del AGCL Gateway, diseños, algoritmos y documentación interna son **propiedad exclusiva** de sus titulares.  
 Este repositorio público solo distribuye material de verificación externa y configuraciones de referencia no secretas.
 
 Uso no autorizado del material aquí presente con fines de ingeniería inversa del sistema real está prohibido.

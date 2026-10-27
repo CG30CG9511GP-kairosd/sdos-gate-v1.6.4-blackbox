@@ -1,4 +1,4 @@
-# Guion Caja Negra — Etapa 2 (SDOS Gate v1.6.4)
+# Guion Caja Negra — Etapa 2 (AGCL Gateway v1.6.4)
 
 **Paquete público de verificación externa.**  
 No modificar ni redistribuir el núcleo congelado (etapa-1). El código fuente real no forma parte de este repositorio.
@@ -24,7 +24,7 @@ bash blackbox/scripts/phase_a_edge_burst.sh
 ```
 
 Objetivo: observar comportamiento de `/health` y `/ready` bajo ráfaga.  
-Con edge nginx de referencia se espera posible 429. Contra el Gate directo no debe aparecer 429 de proceso en estas rutas públicas.
+Con edge nginx de referencia se espera posible 429. Contra el Gateway directo no debe aparecer 429 de proceso en estas rutas públicas.
 
 ---
 
