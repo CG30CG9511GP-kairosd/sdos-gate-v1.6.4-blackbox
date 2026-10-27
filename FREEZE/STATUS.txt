@@ -1,0 +1,3 @@
+SDOS Gate v1.6.4 ETAPA 1 CONGELADA
+124 passed / 20 skipped legado JSON. Controles no rediseñados.
+No modificar. Caja negra solo en etapa-2-caja-negra.
