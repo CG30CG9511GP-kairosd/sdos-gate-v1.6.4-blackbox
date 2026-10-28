@@ -15,10 +15,25 @@ Este repositorio permite verificar los **controles de seguridad observables** de
 
 ---
 
+## Simulador interactivo (demo de campaña)
+
+**Frase:** *El agente propone. El humano autoriza.*
+
+Archivo: [`demo/index.html`](demo/index.html)
+
+- Es una **simulación educativa** (no es el API ni el binario real).
+- Para LinkedIn / navegador: activa **GitHub Pages** en este repo (`Settings → Pages → Deploy from branch main`) y usa:
+  - `https://cg30cg9511gp-kairosd.github.io/sdos-gate-v1.6.4-blackbox/demo/`
+- Vista previa rápida (sin Pages):
+  - [htmlpreview del simulador](https://htmlpreview.github.io/?https://github.com/CG30CG9511GP-kairosd/sdos-gate-v1.6.4-blackbox/blob/main/demo/index.html)
+
+---
+
 ## Qué contiene este repositorio
 
 | Contenido | Descripción |
 |-----------|-------------|
+| `demo/` | Simulador HTML AGCL Gateway (campaña) |
 | `FREEZE/` | Hashes SHA-256 del núcleo congelado + estado de la etapa |
 | `blackbox/` | Scripts de prueba externa (Fases A, B, C) + guion |
 | `deploy/` | Configuración de referencia edge (nginx) + compose de ejemplo (sin secretos) |
